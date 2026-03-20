@@ -22,7 +22,7 @@ function Star(props: StarProps) {
     if (props.selected) {
         return (
             <span>
-                <b>star</b>{' '}
+                <b>star</b>
             </span>
         );
     }
