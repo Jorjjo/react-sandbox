@@ -18,7 +18,6 @@ function UncontrolledAccordiondion(props: AccordionPropsType) {
                 title={props.titleValue}
                 handleCollapsed={handleCollapsed}
             />
-            {/* <button onClick={()=>{setIsCollapsed(!isCollapsed)}}>toggle</button> */}
             {isCollapsed && <AccordionBody />}
         </div>
     );
@@ -44,7 +43,3 @@ function AccordionBody() {
 }
 
 export default UncontrolledAccordiondion;
-
-//что нужжно доделать:
-//1. uncontrolled rating
-//2. попробовать не создавать кнопки

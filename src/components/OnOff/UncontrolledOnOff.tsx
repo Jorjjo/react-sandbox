@@ -1,9 +1,12 @@
-type OnOffProps = {
-    setIsOn: (isOn: boolean) => void;
-    isOn: boolean;
+import { useState } from 'react';
+
+type Props = {
+    onChange: (isOn: boolean) => void;
 };
 
-export function OnOff({ setIsOn, isOn }: OnOffProps) {
+export function UncontrolledOnOff(props: Props) {
+    const [isOn, setIsOn] = useState(false);
+
     const onStyle = {
         width: '40px',
         height: '40px',
@@ -33,23 +36,22 @@ export function OnOff({ setIsOn, isOn }: OnOffProps) {
         backgroundColor: isOn ? 'yellow' : 'transparent',
     };
 
+    const onClicked = () => {
+        setIsOn(true);
+        props.onChange(true);
+    };
+
+    const offClicked = () => {
+        setIsOn(false);
+        props.onChange(false);
+    };
     return (
         <div>
-            <h2>Controlled on/off</h2>
-            <div
-                style={onStyle}
-                onClick={() => {
-                    setIsOn(true);
-                }}
-            >
+            <h2>UnControlled on/off</h2>
+            <div style={onStyle} onClick={onClicked}>
                 On
             </div>
-            <div
-                style={offStyle}
-                onClick={() => {
-                    setIsOn(false);
-                }}
-            >
+            <div style={offStyle} onClick={offClicked}>
                 Off
             </div>
             <div style={indicatorStyle}></div>

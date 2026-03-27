@@ -4,10 +4,11 @@
 import { useState } from 'react';
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
-import { OnOff } from './components/OnOff/OnOff';
-import { Rating } from './components/Rating/Rating';
+import { UncontrolledOnOff } from './components/OnOff/UncontrolledOnOff';
+import { Rating, type RatingValue } from './components/Rating/Rating';
 import UncontrolledAccordiondion from './components/Accordion/UncontrolledAccordion';
 import { UncontrolledRating } from './components/Rating/UncontrolledRating';
+import { OnOff } from './components/OnOff/OnOff';
 
 // function declaration. Но функцию можно определить любым способом:
 // function expression (const App = function(){return})
@@ -19,29 +20,28 @@ function App() {
     // const [isOn, setIsOn] = useState(false)
 
     // обязана вернуть JSX (то, что выглядить как html это JSX)
+    const [rating, setRating] = useState<RatingValue>(0);
+
+    const [accordionCollapsed, setAccordionCollapsed] = useState(false);
+
+    const [isOn, setIsOn] = useState(false);
     return (
-        <div>
+        <div className={'App'}>
             <PageTitle title={'This is APP component'} />
-            {/* <PageTitle title={'My Friends'} />
-            Article 1
-            <Rating value={3} />
-            <Accordion titleValue={'Menu'} collapsed={true}/>
-            <Accordion titleValue={'Users'} collapsed={false} />
-            Article 2 */}
-            {/* <Rating value={0} />
-            <Rating value={1} />
-            <Rating value={2} />
-            <Rating value={3} />
-            <Rating value={4} />
-            <Rating value={5} /> */}
+            {/* <PageTitle title={'My Friends'} /> */}
+            {/* <Rating value={3} /> */}
+            {/* <Accordion titleValue={'Users'} collapsed={false} /> */}
+            <Rating onClick={setRating} value={rating} />
             <UncontrolledRating />
-            {/* <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating /> */}
-            <OnOff />
-            <OnOff />
+            <OnOff setIsOn={setIsOn} isOn={isOn} />
+            <UncontrolledOnOff onChange={setIsOn} /> {isOn.toString()}
+            <Accordion
+                titleValue={'Tasks'}
+                collapsed={accordionCollapsed}
+                setAccordionCollapsed={() => {
+                    setAccordionCollapsed(!accordionCollapsed);
+                }}
+            />
             <UncontrolledAccordiondion titleValue={'Menu'} />
         </div>
     );
