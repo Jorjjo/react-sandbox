@@ -4,7 +4,7 @@ export type AccordionPropsType = {
     setAccordionCollapsed: () => void;
 };
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle
@@ -34,5 +34,3 @@ function AccordionBody() {
         </ul>
     );
 }
-
-export default Accordion;

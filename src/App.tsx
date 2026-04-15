@@ -3,7 +3,7 @@
 // import viteLogo from '/vite.svg'
 import { useState } from 'react';
 import './App.css';
-import Accordion from './components/Accordion/Accordion';
+import { Accordion } from './components/Accordion/Accordion';
 import { UncontrolledOnOff } from './components/OnOff/UncontrolledOnOff';
 import { Rating, type RatingValue } from './components/Rating/Rating';
 import UncontrolledAccordiondion from './components/Accordion/UncontrolledAccordion';
@@ -34,7 +34,7 @@ function App() {
             <Rating onClick={setRating} value={rating} />
             <UncontrolledRating />
             <OnOff setIsOn={setIsOn} isOn={isOn} />
-            <UncontrolledOnOff onChange={setIsOn} /> {isOn.toString()}
+            {/* <UncontrolledOnOff onChange={setIsOn} /> {isOn.toString()} */}
             <Accordion
                 titleValue={'Tasks'}
                 collapsed={accordionCollapsed}
