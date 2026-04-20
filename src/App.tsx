@@ -3,10 +3,9 @@
 // import viteLogo from '/vite.svg'
 import { useState } from 'react';
 import './App.css';
-import { Accordion } from './components/Accordion/Accordion';
-import { UncontrolledOnOff } from './components/OnOff/UncontrolledOnOff';
+// import { Accordion } from './components/Accordion/Accordion';
+// import { UncontrolledOnOff } from './components/OnOff/UncontrolledOnOff';
 import { Rating, type RatingValue } from './components/Rating/Rating';
-import UncontrolledAccordiondion from './components/Accordion/UncontrolledAccordion';
 import { UncontrolledRating } from './components/Rating/UncontrolledRating';
 import { OnOff } from './components/OnOff/OnOff';
 
@@ -22,8 +21,6 @@ function App() {
     // обязана вернуть JSX (то, что выглядить как html это JSX)
     const [rating, setRating] = useState<RatingValue>(0);
 
-    const [accordionCollapsed, setAccordionCollapsed] = useState(false);
-
     const [isOn, setIsOn] = useState(false);
     return (
         <div className={'App'}>
@@ -34,15 +31,6 @@ function App() {
             <Rating onClick={setRating} value={rating} />
             <UncontrolledRating />
             <OnOff setIsOn={setIsOn} isOn={isOn} />
-            {/* <UncontrolledOnOff onChange={setIsOn} /> {isOn.toString()} */}
-            <Accordion
-                titleValue={'Tasks'}
-                collapsed={accordionCollapsed}
-                setAccordionCollapsed={() => {
-                    setAccordionCollapsed(!accordionCollapsed);
-                }}
-            />
-            <UncontrolledAccordiondion titleValue={'Menu'} />
         </div>
     );
 }

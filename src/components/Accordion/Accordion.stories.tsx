@@ -10,7 +10,7 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+// type Story = StoryObj<typeof meta>;
 
 // export const FirstStory: Story = {
 //     args: {
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 //     },
 // };
 
-const onChangeCallback = action('onChange')
+const onChangeCallback = action('onChange');
 
 export const OpenedAccordion = () => {
     return (
@@ -28,6 +28,14 @@ export const OpenedAccordion = () => {
             titleValue='OpenedAccordion'
             collapsed={false}
             setAccordionCollapsed={onChangeCallback}
+            items={[
+                { title: 'hi', value: '1' },
+                { title: 'hihi', value: '2' },
+                { title: 'hehe', value: '3' },
+            ]}
+            onClick={(value) => {
+                alert(value);
+            }}
         />
     );
 };
@@ -38,6 +46,14 @@ export const CollapsedAccordion = () => {
             titleValue='CollapsedAccordion'
             collapsed={true}
             setAccordionCollapsed={() => {}}
+            items={[
+                { title: 'hi', value: '1' },
+                { title: 'hihi', value: '2' },
+                { title: 'hehe', value: '3' },
+            ]}
+            onClick={(value) => {
+                alert(value);
+            }}
         />
     );
 };
@@ -50,6 +66,14 @@ export const AccordionDemo = () => {
             collapsed={accordionCollapsed}
             setAccordionCollapsed={() => {
                 setAccordionCollapsed(!accordionCollapsed);
+            }}
+            items={[
+                { title: 'hi', value: '1' },
+                { title: 'hihi', value: '2' },
+                { title: 'hehe', value: '3' },
+            ]}
+            onClick={(value) => {
+                alert(value);
             }}
         />
     );
